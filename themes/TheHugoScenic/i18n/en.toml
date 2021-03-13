@@ -1,0 +1,58 @@
+[Language]
+other = "Language"
+[Articles]
+one = "Article"
+other = "Articles"
+[Categories]
+one = "Category"
+other = "Categories"
+[Tags]
+one = "Τag"
+other = "Τags"
+[About]
+other = "About"
+[Policy]
+other = "Policy"
+[Contact]
+other = "Contact"
+[FollowSocial]
+other = "Follow me on"
+[ConnectSocial]
+other = "Connect with me on"
+[LookSocial]
+other = "Look me up on"
+[CoffeeSocial]
+other = "Buy me a coffee"
+[Share]
+other = "Share"
+[ShareWith]
+other = "Share this with"
+[By]
+other = "By"
+[On]
+other = "on"
+[wordCount]
+other = "This article have {{ .WordCount }} words."
+[readingTime]
+one = "One minute to read"
+other = "{{.Count}} minutes to read"
+[RelatedArticle]
+other = "Related Article"
+[License]
+other= "License"
+[CCBY]
+other = "This work is licensed under a Creative Commons Attribution 4.0 International License"
+[CCBY-ND]
+other = "This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License"
+[CCBY-SA]
+other = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License"
+[CCBY-NC]
+other = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License"
+[CCBY-NC-ND]
+other ="This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License"
+[CCBY-NC-SA]
+other = "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
+[PowerOf]
+other = "By the Power of"
+[AndThe]
+other = "and the"

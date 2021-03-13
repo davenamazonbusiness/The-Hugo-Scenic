@@ -1,0 +1,44 @@
+{{- if eq .Site.Params.IwantStructuredData "true" -}}{{- $Name := .Site.Params.PersonName -}}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "{{- if .IsPage }}{{- with .Page.Params.StructuredDataType }}{{ . }}{{- end }}{{- else }}WebSite{{ end -}}",
+    "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"{{ .Site.BaseURL }} {{ .Site.LanguageCode }} {{ .Page.Params.description }}"
+    }
+  },
+    "headline": "{{- .Page.Params.Title }}",
+     {{ if eq .Page.Params.HeroImage "true" }}
+     "image": {
+       "@type": "ImageObject",
+       "url": "{{ .Page.Params.HeroImageURL | absURL }}",
+       {{ if and (.Page.Params.HeroImageHeight) (.Page.Params.HeroImageWidth) }}
+       "height": {{.Page.Params.HeroImageHeight}},
+       "width": {{- .Page.Params.HeroImageWidth}}{{ else }}
+       "height": 720,
+       "width": 404 {{ end }}
+     }{{ end }},
+     "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+     "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+     {{- with .Page.Params.Author }}
+     "author": {
+       "@type": "Person",
+       "name": "{{.}}"
+     },{{- end}}
+     
+     "publisher": {
+       "@type": "{{- with .Site.Params.SchemaPublisher}}{{.}}{{- else }}Person{{- end }}",
+       "name": "{{- .Site.Title }}",
+       {{- if eq .Site.Params.Logo "true" }}
+       "logo": {
+         "@type": "ImageObject",
+         "url": "{{ .Site.Params.LogoURL}}",
+         "width": {{- .Site.Params.LogoWidth }},
+         "height": {{- .Site.Params.LogoHeight }}
+       }{{ end }}
+     } {{- with .Page.Params.description }},
+     "description": "{{.}}"
+    }{{- end }}
+    </script>{{- end -}}
+

@@ -1,0 +1,100 @@
+    <script type="application/ld+json">
+      {"@context":"https://schema.org",
+      "@graph":
+        [{ 
+          "@type":["Person","Organization"],
+          "@id":"{{ .Site.BaseURL }}#/schema/person/",
+          "name":"{{ .Site.Params.PersonName }}",
+{{- if eq .Site.Params.IhaveAnAvatar "true"}}
+          "image":{
+                    "@type":"ImageObject",
+                    "@id":"{{ .Site.BaseURL }}#personlogo",
+                    "inLanguage":"{{ .Site.LanguageCode }}",
+                    "url":"{{ .Site.Params.AvatarURL }}",
+                    "width":{{ .Site.Params.AvatarWidth }},
+                    "height":{{ .Site.Params.AvatarHeight }},
+                    "caption":"{{ .Site.Params.PersonName }}"
+                  },
+{{- end }}
+          "logo":{
+                   "@id":"{{ .Site.BaseURL }}#personlogo"
+                 },
+          "description":"{{ .Site.Params.PersonName }} Logo"
+{{- if eq .Site.Params.IwantSocialFollowIconsAtSidebar "true" }},
+          "sameAs":[
+                     {{- with .Site.Params.SidebarTwitter }} "{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarFacebook }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarInstagram }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarYoutube }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarPinterest }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarTumbls }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarTiktok }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarSnapchat }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarGitHub }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.SidebarGitLab}}"{{.}}",{{ end }}
+                     "{{ .Site.BaseURL }}"
+                   ]
+{{- else if eq .Site.Params.IwantSocialFollowIconsAtFooter "true" }},
+          "sameAs":[
+                     {{- with .Site.Params.FooterTwitter }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterFacebook }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterInstagram }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterYoutube }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterPinterest }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterTumbls }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterTiktok }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterSnapchat }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterGitHub }}"{{.}}",{{ end }}
+                     {{- with .Site.Params.FooterGitLab}}"{{.}}",{{ end }}
+                     "{{ .Site.BaseURL }}"
+                  ]{{ end }}
+        },
+        {
+        "@type":"WebSite",
+        "@id":"{{ .Site.BaseURL }}#website",
+        "url":"{{ .Site.BaseURL }}",
+        "name":"{{ .Site.Title }}",
+        "description":"{{ .Page.Params.description}}",
+        "publisher":{
+                "@id":"{{ .Site.BaseURL }}#/schema/person/"
+                    },
+        "inLanguage":"{{ .Site.LanguageCode }}"
+        },
+{{- if eq .Page.Params.HeroImage "true" }}
+        {
+        "@type":"ImageObject",
+        "@id":"{{ .Site.BaseURL }}#primaryimage",
+        "inLanguage":"{{ .Site.LanguageCode }}",
+        "url":"{{ .Page.Params.HeroImageURL | absURL }}",
+  {{- if and (.Page.Params.HeroImageHeight) (.Page.Params.HeroImageWidth) }}
+       "height": {{.Page.Params.HeroImageHeight}},
+       "width": {{- .Page.Params.HeroImageWidth}},
+  {{- else }}
+       "height": 720,
+       "width": 404, 
+  {{- end }}
+        "caption":"{{ .Page.Params.HeroImageDescription }}"
+        },
+{{ end }}
+        {
+            "@type":"WebPage",
+            "@id":"{{ .Site.BaseURL }}#webpage",
+            "url":"{{ .Site.BaseURL }}",
+            "name":"{{ .Page.Params.Title }}",
+            "isPartOf":{"@id":"{{ .Site.BaseURL }}#website"},
+            "about":{"@id":"{{ .Site.BaseURL }}#/schema/person/"},
+            "primaryImageOfPage":{
+                                "@id":"{{ .Site.BaseURL }}#primaryimage"
+                                 },
+            "datePublished":"{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+            "dateModified":"{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+            "description":"{{ .Page.Params.Description }}",
+            "inLanguage":"{{ .Site.LanguageCode }}",
+            "potentialAction":
+                            [{
+                              "@type":"ReadAction",
+                              "target":"{{ .Site.BaseURL }}"
+                              }]
+        }]
+      }
+    </script>

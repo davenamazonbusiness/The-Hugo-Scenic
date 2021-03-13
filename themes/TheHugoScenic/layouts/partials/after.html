@@ -1,0 +1,36 @@
+{{ $related := .Site.RegularPages.RelatedIndices .  "categories" | first 1}}
+      {{ with $related }}
+    <h2 class="m3 mb4 pb4 caps bold center h3">Related article</h2>
+    {{ range . }}
+    {{ $relatedpage := . }} {{$relatedpage}}
+	{{ $relatedhero := .Page.Params.HeroImage }} {{ $relatedhero }}
+	{{ $relatedheroimageurl := .Page.Params.HeroImageURL}} {{$relatedheroimageurl}}   
+
+	<article class="ampstart-article-summary m0 relative">
+    {{if eq .Page.Params.HeroImage "true"}}
+		<a href="{{ .RelPermalink }}" class="brand">
+                        <amp-img width="360" height="400" layout="responsive"
+                          src="{{ with .Page.Params.HeroImageURL }}{{.}}{{ end }}"
+                        ></amp-img>
+                        <header class="absolute bottom-0 right-0 left-0 center m3 p3">
+                          <h3 class="caps bold">{{ .Title }}</h3>
+                          <span class="ampstart-image-credit h4">
+                            {{ with .Page.Params.Author }} By
+                             {{ . }},<br>{{ end }} on
+                             {{ .Date.Format "Jan 2, 2006" }}
+                           </span>
+                        </header></a>
+                        {{else if eq .Page.Params.HeroImage "false"}}
+						<figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+							<amp-img width="200" height="200" alt="Placeholder Background" layout="responsive" src="{{ "/" | absURL }}images/scenic/bg.png" media="(max-width: 415px)"></amp-img>
+							<amp-img height="200" alt="Placeholder Background" layout="fixed-height" src="{{ "/" | absURL }}images/scenic/bg.png" media="(min-width: 416px)"></amp-img>
+							  <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+								<header class="p3 center">
+								  <h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text"><a class="brand" href="{{.Permalink}}">{{ .Title}}</a></span></h2>
+									<span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} By {{ . }},<br>{{ end }} on {{ .Date.Format "Jan 2, 2006" }}</span>
+								</header>
+							  </figcaption>
+							</figure>
+						{{end}}
+                    </article>{{end}}{{end}}
+                    

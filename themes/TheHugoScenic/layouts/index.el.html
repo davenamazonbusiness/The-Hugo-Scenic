@@ -1,0 +1,87 @@
+{{ define "main" }}
+
+{{ if eq .Page.Params.HeroImage "true"}}
+<div class="center">
+<!-- Start Fullpage Hero -->
+  <figure class="ampstart-image-fullpage-hero m0 relative mb4">
+    <amp-img width="404" height="720" {{ with .Page.Params.HeroImageDescription }}alt="{{ . }}"{{ end }} layout="responsive" {{ with .Page.Params.HeroImageUrl }}
+      src="{{ . }}"{{ end }} media="(max-width: 415px)"></amp-img>
+    <amp-img height="720" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="fixed-height" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(min-width: 416px)"></amp-img>
+      <div class="absolute top-0 right-0 bottom-0 left-0">
+        <footer class="absolute left-0 right-0 bottom-0">
+          <a class="ampstart-readmore py3 caps line-height-2 text-decoration-none center block h5" href="#content"></a>
+        </footer>
+      </div>
+  </figure>
+ <div></div>   <!-- End Fullpage Hero --> 
+  </div> {{ end }}
+  <div class="center pt4">
+    <!-- Start Fullpage Hero -->
+    <div class="pt4">
+        <header class="">
+          <h1 class="h1 pt4">
+            <span class="ampstart-fullpage-hero-heading-text">
+              {{ .Page.Title}}
+            </span>
+          </h1>
+        </header> 
+</div>
+  </div>
+  <main id="content" class="max-width-4" role="main">
+    <article class="{{ range .Page.Params.categories }}{{ . }}{{ end }}">
+
+           <div class="{{ with eq .Page.Params.EnableDropcap "true" }}dropcap block {{ end }} mt4">{{ .Content }}</div></article>
+
+        <div class="categories">
+          <h2 class="center mb3 brc">Categories</h2>
+        {{- if isset .Site.Taxonomies "categories" }}
+           {{- if not (eq (len .Site.Taxonomies.categories) 0) }}
+        <ul class="clearfix center">
+          {{ range first 5 .Site.Taxonomies.categories.ByCount }}
+            <li class="inline-block mr1"><a href="{{ .Page.Permalink }}">{{ .Name }}</a> ({{ .Count }})</li>
+          {{ end }}
+        </ul>{{ end }}{{ end }}</div><hr>
+        <div class="tags">
+          <h2 class="center mb3 brc">Tags</h2>
+        {{- if isset .Site.Taxonomies "tags" }}
+           {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
+        <ul class="clearfix center">
+          {{ range first 5 .Site.Taxonomies.tags.ByCount }}
+            <li class="inline-block mr1"><a href="{{ .Page.Permalink }}">{{ .Name }}</a> ({{ .Count }})</li>
+            
+          {{ end }}
+        </ul>{{ end }}{{ end }}</div><hr>
+        
+<div class="recent-posts">
+    <h2 class="center mb3 brc">Most Recent Posts</h2>
+    <ul class="list-reset">
+    {{- range ( where .Site.RegularPages "Section" "travel-to" | first 3 ) }}
+              <li class="mb3">
+                {{ if eq .Page.Params.HeroImage "true"}}
+                <figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+                  <a class="brand" href="{{.Permalink}}"><amp-img width="200" height="200" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="responsive" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(max-width: 415px)"></amp-img>
+                  <amp-img height="200" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="fixed-height" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(min-width: 416px)"></amp-img>
+                    <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+                      <header class="p3 center">
+                        <h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text">{{ .Title}}</span></h2>
+                          <span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} By {{ . }},{{ end }} on {{ .Date.Format "Jan 2, 2006" }}</span>
+                      </header>
+                    </figcaption></a>
+                  </figure>{{ else }}
+                  <figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+                    <a class="brand" href="{{.Permalink}}"><amp-img width="200" height="200" alt="Placeholder Background" layout="responsive" src="{{ "/" | absURL }}images/scenic/bg.png" media="(max-width: 415px)"></amp-img>
+                    <amp-img height="200" alt="Placeholder Background" layout="fixed-height" src="{{ "/" | absURL }}images/scenic/bg.png" media="(min-width: 416px)"></amp-img>
+                      <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+                        <header class="p3 center">
+                          <h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text">{{ .Title}}</span></h2>
+                            <span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} By {{ . }},{{ end }} on {{ .Date.Format "Jan 2, 2006" }}</span>
+                        </header>
+                      </figcaption></a>
+                    </figure>
+                  {{ end }}
+                          </li>
+                      {{ end }}
+                      </ul>
+      </div>
+      </main>
+      {{ end }}

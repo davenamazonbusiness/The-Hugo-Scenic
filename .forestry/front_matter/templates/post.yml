@@ -1,0 +1,124 @@
+---
+label: Post
+hide_body: false
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+    max: 100
+  label: Title
+  description: The post title
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: YYYY-MM-DD
+    time_format: HH:MM
+    display_utc: false
+- name: Author
+  type: text
+  config:
+    required: false
+  label: Author Name
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Post Description
+- name: summary
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Post Summary
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: categories
+  type: tag_list
+  default: []
+  label: Categories
+- name: HeroImage
+  type: boolean
+  label: Hero Image
+  description: Enable or disable the Hero Image for the current post.
+- name: HeroImageURL
+  type: file
+  config:
+    maxSize: 64
+  label: Hero Image URL
+  showOnly:
+    field: HeroImage
+    value: true
+- name: HeroImageWidth
+  type: number
+  label: Hero Image Width
+  description: Your hero image width in px
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
+  showOnly:
+    field: HeroImage
+    value: true
+- name: HeroImageHeight
+  type: number
+  label: Hero Image Height
+  description: The height of the hero image
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
+  showOnly:
+    field: HeroImage
+    value: true
+- name: HeroImageDescription
+  type: text
+  config:
+    required: false
+  label: Hero Image Description
+  description: The description of the hero image (the alt value)
+  showOnly:
+    field: HeroImage
+    value: true
+- name: EnableDropcap
+  type: boolean
+  label: Dropcap
+  description: Enable/disable the use of dropcap
+- name: Disclaimer
+  type: boolean
+  label: Post Disclaimer
+- name: DisclaimerTitle
+  type: text
+  config:
+    required: false
+  label: Disclaimer Title
+  showOnly:
+    field: Disclaimer
+    value: true
+- name: DisclaimerContent
+  type: text
+  config:
+    required: false
+  label: Disclaimer Content
+  showOnly:
+    field: Disclaimer
+    value: true
+pages:
+- content/travel-to/forestry-test.md
+- content/travel-to/test-2.md

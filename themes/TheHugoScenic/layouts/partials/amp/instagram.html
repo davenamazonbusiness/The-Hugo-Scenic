@@ -1,0 +1,5 @@
+{{ if .ID }}
+<amp-instagram data-shortcode="{{ with .ID }}{{ . }}{{ end }}" width="327" height="214" layout="responsive"  class="p0 m3"></amp-instagram>
+{{ else }}
+<div class="error h4 center mb2">There is something wrong with the Instagram <b>ID</b>.<br>If you need help try the documentation or contact us.</div>
+{{ end }}

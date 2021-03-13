@@ -1,0 +1,258 @@
+theme = "TheHugoScenic"
+# Edit the following values between the quotation marks ("")
+baseURL = "" # Your site url
+languageCode = "en" # Your site's main language
+defaultContentLanguage = "en"
+title = "The Hugo Scenic" # Your site's title
+newContentEditor = "code"
+defaultContentLanguageInSubdir = "true"
+disablePathToLower = "false"# true if you want url with CAPITAL letters
+enableEmoji = "true" #false if tou want emoji
+summaryLength = "150"
+RemovePathAccents = "true"
+[taxonomies] 
+tag = "tags" 
+category = "categories" 
+#TAXONOMY_NAME_SINGLE = "PLURAL"
+[params]
+# AMP COMPONENTS #
+  ampInstagram = "true"
+  ampFacebook = "true"
+  ampYouTube = "true"
+  ampCarousel = "true"
+  ampAccordion = "true"
+  ampSocialShare = "true"
+  ampGoogleAnalytics = "true"
+# END AMP MODULES #
+
+# FONTS #
+
+ ## GOOGLE FONTS ##
+   IwantGoogleFonts = "true" # If you don't want change true to false inside the quotes.
+   NameOfGoogleFont = "M+PLUS+Rounded+1c:wght@400;700" # Name of the Google font. For examples see the docs.
+   NameOfGoogleFontFamily = "M PLUS Rounded 1c" # Name of the Google font family. For examples see the docs.
+ ## END GOOGLE FONTS ##
+
+ ## CUSTOM FONTS ##
+   IwantCustomFonts = "false" # If you want to use custom fonts set IwantGoogleFonts to false and IwantCustomFonts to true..
+   FontsWOFF = "hachimarupop-regular-webfont.woff"
+   FontsWOFF2 = "hachimarupop-regular-webfont.woff2"
+ ## END CUSTOM FONTS ##
+ 
+ ## FONT SIZE ##
+   FontSize = "18px"
+ ## END FONT SIZE ##
+# END FONTS #
+
+# COLORS #
+ ChoosePalette = "light" # light or dark
+ ## LIGHT COLOR PALETTE ##
+  BrandColorLP = "#264653" # Initial Value #264653 Social Share Icons, sidebar menu, Sidebar Menu Icon, Site title
+  BackgroundColorLP = "#f8f8ff" # Initial Value #f8f8ff Header Background, Main background
+  FontsColorLP = "#000013" # Initial Value #000013 Font Color.
+  MenuFontsColorLP = "#f8f8ff" # Initial Value #f8f8ff
+  AttentionColorLP = "#400000" # 
+ ## END LIGHT COLOR PALETTE
+
+ ## DARK COLOR PALETTE ##
+  BrandColorDP = "#bcccdc" # Initial Value #264653 Social Share Icons, sidebar menu, Sidebar Menu Icon, Site title
+  BackgroundColorDP = "#121212" # Initial Value #f8f8ff Header Background, Main background
+  FontsColorDP = "#bcccdc" # Initial Value #000013 Font Color.
+  MenuFontsColorDP = "#171f24" # Initial Value #f8f8ff
+  AttentionColorDP = "#ff6700" # 
+ ## END DARK COLOR PALETTE ##
+# END COLORS #
+
+# STRUCTURED DATA #
+IwantStructuredData = "true"
+  SchemaPublisher = "Organization" # Organization or Person
+  OrganizationName = " "
+  PersonName = "Webmaster"
+  ## AVATAR SETTINGS ##
+  IhaveAnAvatar = "true"
+  AvatarURL = "https://www.example.com/logo.jpg"
+  AvatarWidth = "200"
+  AvatarHeight = "200"
+
+# END STRUCTURED DATA
+# OPEN GRAPH PROTOCOL #
+EnableOpenGraphProtocol = "true"
+  FacebookProfileUrl = "https://www.fecebook.com"
+  FacebookAppID = "5677889"
+# TWITTER CARDS #
+EnableTwitterCards = "true"
+  TwitterUsername = "@AnimoPhoenicus"
+
+# SOCIAL ICONS #
+
+ ## SOCIAL SHARE #
+  IwantSocialShareIcons = "true"
+  ShareOnTwitter = "true"
+  ShareOnFacebook = "true"
+  ShareOnLinkedIn = "true"
+  ShareWithSystem = "true"
+  ShareOnPinterest = "true"
+  ShareOnTumblr = "true"
+  ShareWithEmail = "true"
+  ShareOnWhatsapp = "true"
+  ShareOnLine = "true"
+ ## END SOCIAL SHARE ##
+
+ ## SOCIAL FOLLOW SIDEBAR ##
+  IwantSocialFollowIconsAtSidebar = "true"
+  SidebarTwitter = "https://www.twitter.com/"
+  SidebarFacebook = "https://www.facebook.com/"
+  SidebarInstagram = "https://www.instagram.com/"
+  SidebarYoutube = "https://www.youtube.com/"
+  SidebarPinterest = "https://www.pinterest.com/"
+  SidebarLinkedIn = "https://www.linkedin.com/"
+  SidebarReddit = "https://www.reddit.com/"
+  SidebarTiktok = "https://www.tiktok.com/"
+  SidebarSnapchat = "https://www.snapchat.com/"
+  SidebarTumblr = "https://www.tumblr.com/"
+  SidebarGithub = "https://www.github.com/"
+  SidebarGitlab = "https://www.gitlab.com/"
+  SidebarKoFi = "https://www.ko-fi.com"
+  SidebarBuyMeACoffee = "https://www.buymeacoffee.com/"
+# END FOLLOW ON SOCIAL #
+
+ ## SOCIAL FOLLOW FOOTER ##
+  IwantSocialFollowIconsAtFooter = "true"
+  FooterTwitter = "https://www.twitter.com/"
+  FooterFacebook = "https://www.facebook.com/"
+  FooterInstagram = "https://www.instagram.com/"
+  FooterYoutube = "https://www.youtube.com/"
+  FooterPinterest = "https://www.pinterest.com/"
+  FooterLinkedIn = "https://www.linkedin.com/"
+  FooterReddit = "https://www.reddit.com/"
+  FooterTiktok = "https://www.tiktok.com/"
+  FooterSnapchat = "https://www.snapchat.com/"
+  FooterTumblr = "https://www.pinterest.com/"
+  FooterGithub = "https://www.github.com/"
+  FooterGitlab = "https://www.gitlab.com/"
+  FooterKoFi = "https://www.ko-fi.com"
+  FooterBuyMeACoffee = "https://www.buymeacoffee.com/"
+ ## END FOLLOW ON SOCIAL ##
+
+# END SOCIAL ICONS #
+mincss = "false"
+
+# FOOTER COPYRIGHT #
+  Copyright = ""
+# END FOOTER COPYRIGHT
+
+  
+  
+ ## END FOOTER MENU ##
+
+# END MENUS #
+### EDIT BELOW THIS POINT ONLY IF YOU KNOW WHAT ARE YOU DOING ###
+newContentEditor = "code"
+enableRobotsTXT = "true"
+relativeURLs = "true"
+canonifyURLs = "true"
+
+[related]
+  includeNewer = false
+  threshold = 80
+  toLower = false
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+[[related.indices]]
+    name = "tags"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+
+[languages]
+  [languages.el]
+    title = "The Hugo Scenic"
+    weight = "3"
+    contentDir = "content/gr"
+    languageName = "Ελ."
+    [[languages.el.menu.sidebar]]
+      identifier = "about"
+      title = "Περι εμού"
+      name = "Περι εμού"
+      url = "/about/"
+      weight = -120
+    [[languages.el.menu.sidebar]]
+      identifier = "policy"
+      title = "Πολιτική"
+      name = "Πολιτική"
+      url = "/policy/"
+      weight = -110
+    [[languages.el.menu.sidebar]]
+      identifier = "contact"
+      title = "Επικοινωνία"
+      name = "Επικοινωνία"
+      url = "/contact/"
+      weight = -100
+    [[languages.el.menu.footer]]
+      identifier = "about"
+      title = "Περι εμού"
+      name = "Περι εμού"
+      url = "/about/"
+      weight = -120
+    [[languages.el.menu.footer]]
+      identifier = "policy"
+      title = "Πολιτική"
+      name = "Πολιτική"
+      url = "/policy/"
+      weight = -110
+    [[languages.el.menu.footer]]
+      identifier = "contact"
+      title = "Επικοινωνία"
+      name = "Επικοινωνία"
+      url = "/contact/"
+      weight = -100
+  [languages.it]
+    title = "The Hugo Scenic"
+    weight = "2"
+    contentDir = "content/it"
+    languageName = "It."
+  [languages.en]
+    title = "The Hugo Scenic"
+    weight = 1
+    contentDir = "content/en"
+    languageName = "En."
+    [[languages.en.menu.sidebar]]
+      identifier = "about"
+      title = "About"
+      name = "About"
+      url = "/about/"
+      weight = -120
+    [[languages.en.menu.sidebar]]
+      identifier = "policy"
+      title = "Policy"
+      name = "Policy"
+      url = "/policy/"
+      weight = -110
+    [[languages.en.menu.sidebar]]
+      identifier = "contact"
+      title = "Contact"
+      name = "Contact"
+      url = "/contact/"
+      weight = -100
+    [[languages.en.menu.footer]]
+      identifier = "about"
+      title = "About"
+      name = "About"
+      url = "/about/"
+      weight = -120
+    [[languages.en.menu.footer]]
+      identifier = "policy"
+      title = "Policy"
+      name = "Policy"
+      url = "/policy/"
+      weight = -110
+    [[languages.en.menu.footer]]
+      identifier = "contact"
+      title = "Contact"
+      name = "Contact"
+      url = "/contact/"
+      weight = -100

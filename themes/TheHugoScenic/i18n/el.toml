@@ -1,0 +1,56 @@
+[Language]
+other = "Γλώσσα"
+[Articles]
+one = "Άρθρο"
+other = "Άρθρα"
+[Categories]
+one = "Κατηγορία"
+other = "Κατηγορίες"
+[Tags]
+one = "Ετικέτα"
+other = "Ετικέτες"
+[About]
+other = "Περι εμού"
+[Policy]
+other = "Πολιτική"
+[Contact]
+other = "Επικοινωνία"
+[FollowSocial]
+other = "Ακολούθησε με στο"
+[ConnectSocial]
+other = "Συνδέσου μαζί μου στο"
+[LookSocial]
+other = "Επισκέψου με στο"
+[CoffeeSocial]
+other = "Κέρασε με ένα καφέ"
+[Share]
+other = "Διαμοίρασε"
+[ShareWith]
+other = "Διαμοίρασε το με"
+[By]
+other = "Aπό"
+[wordCount]
+other = "Το άρθρο έχει {{ .WordCount }} λέξεις."
+[readingTime]
+one = "και χρειάζεται περίπου ένα λεπτό"
+other = "και χρειάζεται περίπου {{.Count}} λεπτά"
+[RelatedArticle]
+other = "Σχετικό Άρθρο"
+[License]
+other= "Άδεια Χρήσης"
+[CCBY]
+other = "Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού 4.0 Διεθνές"
+[CCBY-ND]
+other = "Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού-Όχι Παράγωγα Έργα 4.0 Διεθνές"
+[CCBY-SA]
+other = "Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού - Παρόμοια Διανομή 4.0 Διεθνές"
+[CCBY-NC]
+other = "Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού-Μη Εμπορική Χρήση 4.0 Διεθνές"
+[CCBY-NC-ND]
+other ="Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού-Μη Εμπορική Χρήση-Όχι Παράγωγα Έργα 4.0 Διεθνές"
+[CCBY-NC-SA]
+other = "Αυτό το έργο διατίθεται υπό τους όρους της άδειας Creative Commons, Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές"
+[PowerOf]
+other = "Με την δύναμη του"
+[AndThe]
+other = "και του"

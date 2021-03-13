@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="center pt4">
+    <div class="pt4">
+        <header class="">
+          <h1 class="h1 m3">
+            <span class=" center">{{ .Page.Title}}</span>
+          </h1>
+        </header> 
+</div>
+  </div>
+<main id="content" role="main">
+  <article class="list">
+ 
+      {{ .Content }}
+      <ul class="list-reset">
+      {{ range .Pages }}
+        <li class="mb3">
+          {{ if eq .Page.Params.HeroImage "true"}}
+          <figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+            <a class="brand" href="{{.Permalink}}"><amp-img width="200" height="200" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="responsive" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(max-width: 415px)"></amp-img>
+            <amp-img height="200" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="fixed-height" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(min-width: 416px)"></amp-img>
+              <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+                <header class="p3 center">
+                  <h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text">{{ .Title}}</span></h2>
+                    <span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} {{ . }} {{ end }} ~ {{ .Date.Format "Jan 2, 2006" }}</span>
+                </header>
+              </figcaption></a>
+            </figure>{{ else }}
+            <figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+              <a class="brand" href="{{.Permalink}}"><amp-img width="200" height="200" alt="Placeholder Background" layout="responsive" src="{{ "/" | absURL }}images/scenic/bg.png" media="(max-width: 415px)"></amp-img>
+              <amp-img height="200" alt="Placeholder Background" layout="fixed-height" src="{{ "/" | absURL }}images/scenic/bg.png" media="(min-width: 416px)"></amp-img>
+                <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+                  <header class="p3 center">
+                    <h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text">{{ .Title}}</span></h2>
+                      <span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} {{ . }}{{ end }}~ {{ .Date.Format "Jan 2, 2006" }}</span>
+                  </header>
+                </figcaption></a>
+              </figure>
+            {{ end }}
+                    </li>
+                {{ end }}
+                </ul>
+    </article>
+
+</main>
+{{ end }}

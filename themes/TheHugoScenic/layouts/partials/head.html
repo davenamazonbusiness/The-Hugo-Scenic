@@ -1,0 +1,47 @@
+{{- if eq .Site.Params.EnableOpenGraphProtocol "true" }}
+{{- if .IsHome }}
+  <head>
+{{- else if .IsPage }}
+  <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+{{- end }}
+{{- else }}
+  <head>
+{{- end }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ .Page.Params.title | truncate 70 }} - {{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink | absURL }}" />
+{{- with .Page.Summary }}
+    <meta name="description" content="{{.}}"/>
+{{- end }}
+{{- if eq .Site.Params.EnableOpenGraphProtocol "true" }}
+{{ partial "head/ogp.html" . }}
+{{- end }}
+{{- if eq .Site.Params.EnableTwitterCards "true" }}
+{{ partial "head/twitter-cards.html" . }}
+{{- end }}
+{{- if eq .Site.Params.IwantStructuredData "true" }}
+{{- if .IsHome }}
+{{ partial "head/home-schema.html" . }}
+{{- else if .IsPage }}
+{{ partial "head/post-schema.html" . }}
+{{- end }}
+{{- end }}
+    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async="" ></script>
+{{- partial "head/amp-components.html" . }}
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+{{ partial "head/css-root.html" . | safeCSS  }}
+{{- partial "head/css-normalize.html" . | safeCSS  }}
+{{- if eq .Site.Params.mincss "true" }}
+{{ partial "head/mincss.html" . | safeCSS }}
+{{- else }}
+{{ partial "head/css.html" . | safeCSS  }}
+{{- end }}
+    </style>
+{{ partial "head/favicons.html" . }}
+{{- with eq .Site.Params.ampGoogleAnalytics "true" }}
+    <meta name="amp-google-client-id-api" content="googleanalytics" />
+{{- end }}
+  </head>

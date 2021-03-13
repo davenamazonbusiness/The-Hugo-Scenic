@@ -1,0 +1,112 @@
+{{- define "main" }}
+{{- if eq .Page.Params.HeroImage "true" }}
+  <div class="center">
+    <figure class="ampstart-image-fullpage-hero m0 relative mb4">
+      <amp-img width="404" height="720" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="responsive" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(max-width: 415px)"></amp-img>
+      <amp-img height="720" {{ with .Page.Params.HeroImageDescription }} alt="{{ . }}"{{ end }} layout="fixed-height" {{ with .Page.Params.HeroImageUrl }} src="{{ . }}"{{ end }} media="(min-width: 416px)"></amp-img>
+        <figcaption class="absolute top-0 right-0 bottom-0 left-0">
+          <header class="p3">
+            <h1 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text">{{ .Page.Title}}</span></h1>
+            <span class="ampstart-image-credit h4">{{ with .Page.Params.Author }} {{ . }},{{ end }} ~ {{ .Date.Format "Jan 2, 2006" }}<br><hr>{{ i18n "wordCount" . }}{{ i18n "readingTime" .ReadingTime }}</span>
+          </header>
+          <footer class="absolute left-0 right-0 bottom-0">
+            <a class="ampstart-readmore py3 caps line-height-2 text-decoration-none center block h5" href="#content"><span class="ampstart-readmore-text px1"></span></a>
+          </footer>
+        </figcaption>
+    </figure>
+  </div> 
+{{- else }}
+  <div class="center pt4">
+    <div class="pt4">
+      <header class="">
+        <h1 class="h1 pt4"><span class="ampstart-fullpage-hero-heading-text">{{ .Page.Title}}</span></h1>
+        <span class="ampstart-image-credit h4">{{ with .Page.Params.Author }} {{ . }},{{ end }} ~ {{ .Date.Format "Jan 2, 2006" }}<br><hr>{{ i18n "wordCount" . }}{{ i18n "readingTime" .ReadingTime }}</span>
+      </header> 
+    </div>
+  </div>
+{{- end }}
+  <main id="content" role="main">
+    <article id="{{ range .Page.Params.categories }}{{ . }}{{ end }}">
+{{- if  eq .Page.Params.Disclaimer "true"}}
+      <div class="disclaimer center mb2">{{ with .Page.Params.DisclaimerTitle}}
+        <h2 class="h5 disclaimer-title p1">{{.}}</h2>{{end}}{{ with .Page.Params.DisclaimerContent}}
+          <p class="p1">{{.}}</p>{{ end }}
+      </div>
+{{- end }}
+      <div class="mt4">
+{{- if eq .Page.Params.EnableDropcap "true" }} 
+{{ .Content | replaceRE "^(.*?)<p>" "<p class=\"dropcap\">" | safeHTML }}
+{{ else }}
+{{ .Content }}
+{{- end }}
+      </div>
+    </article>
+{{- if or (.Page.Params.categories) (.Page.Params.tags)}}
+    <div class="h5 m3">
+      <span>{{ i18n "Categories" . }}:</span>
+{{- range ($.GetTerms "categories") }}
+        <span><a  class="pr1" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a></span>
+{{- end }}<br>
+      <span>{{ i18n "Tags" . }}:</span>
+{{- range ($.GetTerms "tags") }}
+          <span><a class="pr1" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a></span>
+{{- end }}
+    </div>
+{{- end }}<hr>
+{{- if eq .Site.Params.IwantSocialShareIcons "true"}}
+    <aside>   
+      <div class="center m3 mb4">
+{{- with .Site.Params.ShareOnTwitter }}
+        <amp-social-share type="twitter" aria-label="{{ i18n "ShareWith" . }} Twitter" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnFacebook }}
+        <amp-social-share type="facebook" aria-label="{{ i18n "ShareWith" . }} Facebook" data-param-text="Hello world" data-param-href="https://example.com/?ref=URL" data-param-app_id="145634995501895" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnLinkedIn }}
+        <amp-social-share type="linkedin" data-param-text="Hello world" data-param-url="https://example.com/" aria-label="{{ i18n "ShareWith" . }} LinkedIn" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnPinterest }}
+        <amp-social-share type="pinterest" aria-label="{{ i18n "ShareWith" . }} Pintrest" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnTumblr }}
+        <amp-social-share  type="tumblr" aria-label="{{ i18n "ShareWith" . }} Tumblr" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareWithEmail }}
+        <amp-social-share type="email" aria-label="{{ i18n "ShareWith" . }} E-mail" data-param-subject="Hello World" data-param-body="What's up?" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnWhatsapp }}
+        <amp-social-share type="whatsapp" aria-label="{{ i18n "ShareWith" . }} WhatsApp" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareOnLine }}
+        <amp-social-share type="line" aria-label="{{ i18n "ShareWith" . }} Line" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+{{- with .Site.Params.ShareWithSystem }}
+        <amp-social-share type="system" aria-label="{{ i18n "Share" . }}" class="share" width="45" height="45"></amp-social-share>
+{{- end }}
+      </div>
+{{- end }}
+{{- $related := .Site.RegularPages.RelatedIndices .  "categories" | first 1}}
+{{- with $related }}
+    <h2 class="m3 mb4 pb4 caps bold center h3">{{ i18n "RelatedArticle" . }}</h2>
+{{- range . }}
+	    <article class="ampstart-article-summary m0 relative">
+{{- if eq .Page.Params.HeroImage "true"}}
+		    <a href="{{ .RelPermalink }}" class="brand"><amp-img width="360" height="400" layout="responsive" src="{{ with .Page.Params.HeroImageURL }}{{.}}{{ end }}"></amp-img><header class="absolute bottom-0 right-0 left-0 center m3 p3"><h3 class="caps bold">{{ .Title }}</h3><span class="ampstart-image-credit h4">{{ with .Page.Params.Author }}{{ . }},{{ end }} ~ {{ .Date.Format "Jan 2, 2006" }}</span></header></a>
+{{- else if eq .Page.Params.HeroImage "false"}}
+				<figure class="ampstart-image-fullpage-hero m0 relative mb4 b">
+					<amp-img width="200" height="200" alt="Placeholder Background" layout="responsive" src="{{ "/" | absURL }}images/scenic/bg.png" media="(max-width: 415px)"></amp-img>
+					<amp-img height="200" alt="Placeholder Background" layout="fixed-height" src="{{ "/" | absURL }}images/scenic/bg.png" media="(min-width: 416px)"></amp-img>
+						<figcaption class="absolute top-0 right-0 bottom-0 left-0">
+							<header class="p3 center">
+								<h2 class="ampstart-fullpage-hero-heading mb3"><span class="ampstart-fullpage-hero-heading-text"><a class="brand" href="{{.Permalink}}">{{ .Title}}</a></span></h2>
+									<span class="ampstart-image-credit h4 center"> {{ with .Page.Params.Author }} {{ . }},{{ end }} ~ {{ .Date.Format "Jan 2, 2006" }}</span>
+								</header>
+							</figcaption>
+						</figure>
+{{- end }}
+        </article>
+{{- end }}
+{{- end }}
+    </aside>
+  </main>
+{{- end }}

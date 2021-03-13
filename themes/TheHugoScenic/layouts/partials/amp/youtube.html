@@ -1,0 +1,4 @@
+{{ if .ID}}
+  <amp-youtube data-videoid="{{with .ID }}{{.}}{{end}}" layout="responsive" width="480" height="270" class="p0 m3"></amp-youtube>{{ else }}
+    <div class="error h4 center mb2">There is something wrong with the YouTube video <b>ID</b>.<br>If you need help try the documentation or contact us.</div>
+{{ end }}

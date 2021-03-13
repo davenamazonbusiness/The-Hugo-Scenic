@@ -1,0 +1,62 @@
+  <div class="m3">
+{{- if eq .type "Attribution"}}
+    <span class="h4">{{ i18n "License" . }}:</span>
+      <ul class="ul">
+        <a class="cc" rel="license" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="{{ i18n "CCBY" .}}">
+          <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+          <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+        </a>
+      </ul>
+{{- end }}
+{{- if eq .type "Attribution-NoDerivatives"}}
+    <span class="h4">{{ i18n "License" . }}:</span>
+      <ul class="ul">
+        <a class="cc" rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nd/4.0/" title="{{ i18n "CCBY-ND" . }}">
+          <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+          <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+          <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-noderivs"></use></svg></li>
+        </a>
+      </ul>
+{{- end }}
+{{- if eq .type "Attribution-ShareAlike"}}
+    <span class="h4">{{ i18n "License" . }}:</span>
+      <ul class="ul">
+        <a class="cc" rel="license" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/" title="{{ i18n "CCBY-SA" . }}">
+          <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+          <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+          <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-sharealike"></use></svg></li>
+        </a>
+        </ul>
+{{- end }}
+{{- if eq .type "Attribution-NonCommercial"}}
+      <span class="h4">{{ i18n "License" . }}:</span>
+        <ul class="ul">
+          <a class="cc" rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/" title="{{ i18n "CCBY-NC" . }}">
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+            <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-noncommercial-us"></use></svg></li>
+          </a>
+        </ul>
+{{- end }}
+{{- if eq .type "Attribution-NonCommercial-NoDerivatives"}}
+      <span class="h4">{{ i18n "License" . }}:</span>
+        <ul class="ul">
+          <a class="brand" rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="{{ i18n "CCBY-NC-ND" . }}">
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+            <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-noncommercial-us"></use></svg></li>
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-noderivs"></use></svg></li>
+          </a>
+        </ul>
+{{- end }}
+{{- if eq .type "Attribution-NonCommercial-ShareAlike"}}
+      <span class="h4">{{ i18n "License" . }}:</span>
+        <ul class="ul">
+          <a class="cc" rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="{{ i18n "CCBY-NC-SA" . }}">
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons"></use></svg></li>
+            <li class="inline"> <svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-attribution"></use></svg></li>
+            <li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-noncommercial-us"></use></svg></li><li class="inline"><svg class="lic"><use xlink:href="/images/icons/symbol-defs-license.svg#icon-creative-commons-sharealike"></use></svg></li>
+          </a>
+        </ul>
+{{- end }}
+  </div>

@@ -1,0 +1,19 @@
+  <figure class="ampstart-image-with-caption m0 relative mb4">
+    <amp-img {{ with .url }}src="{{ . }}"{{ end }} width="16" height="9" {{ with .description }}alt="{{ . }}"{{ end }} layout="responsive" class="">
+{{- if .fallback }}
+      <amp-img {{ with .description }}alt="{{ . }}" {{ end }} fallback width="16" height="9" {{ with .fallback }}src="{{ . }}"{{ end }} layout="responsive">{{ end }}</amp-img>
+    </amp-img>
+{{- if and (.caption) (.credit) (.creditURL)}}
+      <figcaption class="h5 mt1 px3">{{ with .caption }}{{ . }}{{ end }}
+        <span class="ampstart-image-credit block bold">{{ with .creditURL }}<a href="{{.}}">{{ end }}{{ with .credit }}{{.}}{{ end }}</a></span>
+      </figcaption>
+{{- else if and (.caption) (.credit) }}
+      <figcaption class="h5 mt1 px3">{{ with .caption }}{{ . }}{{ end }}
+        <span class="ampstart-image-credit block bold">{{ with .credit }}{{.}}{{ end }}</a></span>
+      </figcaption>
+{{- else if .caption}}
+      <figcaption class="h5 mt1 px3">{{ with .caption }}{{ . }}{{ end }}</figcaption>
+{{- else if .credit}}
+        <span class="ampstart-image-credit block bold">{{ with .credit }}{{.}}{{ end }}</span>
+{{- end }}
+  </figure>
